@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/custom/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+       <body>
+        <div className="flex h-screen border-collapse overflow-hidden">
+          <Sidebar />
+          <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 bg-secondary/10 pb-1">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   );
 }
